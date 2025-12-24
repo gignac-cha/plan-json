@@ -1,0 +1,1161 @@
+{
+  "$schema": "./schema.json",
+  "state": {
+    "currentPhaseIndex": 4,
+    "lastedUpdatedAt": "2025-12-24T04:56:00+09:00"
+  },
+  "overview": {
+    "project": {
+      "name": "PLAN.json",
+      "description": "Token-efficient structured planning format for AI agents with VSCode integration"
+    },
+    "markdown": [
+      {
+        "type": "heading",
+        "depth": 1,
+        "children": [
+          {
+            "type": "text",
+            "value": "PLAN.json 프로젝트"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "AI 에이전트를 위한 "
+          },
+          {
+            "type": "strong",
+            "children": [
+              {
+                "type": "text",
+                "value": "토큰 효율적"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "인 구조화된 계획 포맷. "
+          },
+          {
+            "type": "inlineCode",
+            "value": "JSON"
+          },
+          {
+            "type": "text",
+            "value": " 기반으로 "
+          },
+          {
+            "type": "inlineCode",
+            "value": "mdast"
+          },
+          {
+            "type": "text",
+            "value": " 호환 마크다운 구조를 사용하며, VSCode Extension을 통해 실시간 미리보기를 제공합니다."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "children": [
+          {
+            "type": "text",
+            "value": "🎯 프로젝트 목표"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "children": [
+          {
+            "type": "listItem",
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "토큰 효율성:"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "value": " 마크다운 대비 구조화된 JSON으로 파싱 비용 절감"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "실시간 미리보기:"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "value": " VSCode Webview 기반 마크다운 렌더링"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "스키마 검증:"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "value": " JSON Schema draft-07 기반 문서 유효성 검사"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "jq 조작:"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "value": " CLI 기반 계획 업데이트 자동화"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "children": [
+          {
+            "type": "text",
+            "value": "📦 패키지 구조"
+          }
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "children": [
+          {
+            "type": "listItem",
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "inlineCode",
+                    "value": "packages/json-to-markdown"
+                  },
+                  {
+                    "type": "text",
+                    "value": " - mdast JSON → Markdown 변환"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "inlineCode",
+                    "value": "packages/plan-json-to-markdown"
+                  },
+                  {
+                    "type": "text",
+                    "value": " - PLAN.jsonmd → Markdown 변환"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "inlineCode",
+                    "value": "packages/markdown-to-html"
+                  },
+                  {
+                    "type": "text",
+                    "value": " - Markdown → HTML 변환"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "inlineCode",
+                    "value": "extensions/preview-plan-json"
+                  },
+                  {
+                    "type": "text",
+                    "value": " - VSCode 확장"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "phases": [
+    {
+      "index": 0,
+      "status": "COMPLETED",
+      "markdown": [
+        {
+          "type": "heading",
+          "depth": 2,
+          "children": [
+            {
+              "type": "text",
+              "value": "Phase 1: 프로젝트 초기 설정"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "모노레포 구조 및 개발 환경 구성"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "children": [
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "pnpm 워크스페이스 초기화 (pnpm-workspace.yaml)"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "루트 tsconfig.json 구성 (ESNext, NodeNext)"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Prettier 설정 (.prettierrc)"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Git 저장소 초기화 및 .gitignore 구성"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "CLAUDE.md 코딩 컨벤션 문서 작성"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "status": "COMPLETED",
+      "markdown": [
+        {
+          "type": "heading",
+          "depth": 2,
+          "children": [
+            {
+              "type": "text",
+              "value": "Phase 2: JSON Schema 정의"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "PLAN.jsonmd 포맷의 공식 스키마 정의"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "children": [
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "schema.json 파일 생성 (JSON Schema draft-07)"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "State 정의 (currentPhaseIndex, lastedUpdatedAt)"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Overview 정의 (project, markdown)"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Phase 정의 (index, status, markdown)"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "MarkdownNode 정의 (mdast 호환 노드 타입들)"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "조건부 스키마 (if/then) 적용"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "status": "COMPLETED",
+      "markdown": [
+        {
+          "type": "heading",
+          "depth": 2,
+          "children": [
+            {
+              "type": "text",
+              "value": "Phase 3: 핵심 변환 패키지 개발"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "JSON ↔ Markdown ↔ HTML 변환 파이프라인 구현"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "children": [
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "packages/json-to-markdown 패키지 생성"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "mdast 노드 타입 정의 (types.ts)"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "convertNode/convertNodes 함수 구현"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "packages/plan-json-to-markdown 패키지 생성"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "PlanDocument 타입 정의"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "convertToMarkdown 함수 구현"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "packages/markdown-to-html 패키지 생성"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "markdownToHTML 함수 구현 (체크박스, 헤딩, 리스트 등)"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "node:test 기반 유닛 테스트 작성 (각 패키지)"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "status": "COMPLETED",
+      "markdown": [
+        {
+          "type": "heading",
+          "depth": 2,
+          "children": [
+            {
+              "type": "text",
+              "value": "Phase 4: VSCode Extension 개발"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "실시간 미리보기 확장 프로그램 구현"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "children": [
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "extensions/preview-plan-json 구조 생성"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "package.json 및 contributes 설정"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": ".jsonmd 언어 등록 (language-configuration.json)"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Webview Panel 기반 미리보기 구현"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "FileSystemWatcher로 파일 변경 감지"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "상태 바 (프로젝트명, 페이즈, 업데이트 시간) 표시"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "에러 처리 및 에러 화면 표시"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "esbuild 기반 빌드 스크립트 작성"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "VSIX 패키징"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "status": "IN_PROGRESS",
+      "markdown": [
+        {
+          "type": "heading",
+          "depth": 2,
+          "children": [
+            {
+              "type": "text",
+              "value": "Phase 5: UI/UX 개선"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "미리보기 화면 디자인 및 사용성 개선"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "children": [
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "다크 테마 CSS 변수 시스템 구현"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "체크박스를 HTML input으로 변경"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "탭 제목에 파일명 표시"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Command Palette에서 .jsonmd 파일만 표시 (when 조건)"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": "in_progress",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "HTML 템플릿을 resources 폴더로 분리"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": false,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "CSS 인라인 처리"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "status": "NOT_STARTED",
+      "markdown": [
+        {
+          "type": "heading",
+          "depth": 2,
+          "children": [
+            {
+              "type": "text",
+              "value": "Phase 6: 문서화 및 스킬 작성"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "AI 에이전트용 스킬 문서 및 사용자 가이드"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "children": [
+            {
+              "type": "listItem",
+              "checked": false,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "skills/plan-json/SKILL.md 작성 (jq 사용법)"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": false,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "README.md 업데이트"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": false,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "샘플 PLAN.jsonmd 파일 생성 (PLAN-0, PLAN-1)"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": false,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "jq 기반 상태 업데이트 예제 문서화"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "status": "NOT_STARTED",
+      "markdown": [
+        {
+          "type": "heading",
+          "depth": 2,
+          "children": [
+            {
+              "type": "text",
+              "value": "Phase 7: 테스트 및 배포"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "품질 검증 및 배포 준비"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "children": [
+            {
+              "type": "listItem",
+              "checked": false,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "모든 패키지 유닛 테스트 통과 확인"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": false,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "VSCode Extension 수동 테스트"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": false,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "다양한 PLAN.jsonmd 파일로 렌더링 테스트"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": false,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "에러 케이스 테스트 (잘못된 JSON, 누락 필드)"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": false,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "VSIX 최종 패키징"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "checked": false,
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "npm 패키지 배포 준비 (선택)"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

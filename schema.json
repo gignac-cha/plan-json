@@ -1,0 +1,355 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://plan-json.dev/schema.json",
+  "title": "PLAN.jsonmd",
+  "description": "Planning Specification for AI Agent - Token-efficient structured planning format",
+  "type": "object",
+  "required": ["state", "overview", "phases"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Reference to this schema"
+    },
+    "state": {
+      "$ref": "#/definitions/State"
+    },
+    "overview": {
+      "$ref": "#/definitions/Overview"
+    },
+    "phases": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Phase"
+      },
+      "description": "Array of project phases"
+    }
+  },
+  "definitions": {
+    "State": {
+      "type": "object",
+      "required": ["currentPhaseIndex", "lastedUpdatedAt"],
+      "properties": {
+        "currentPhaseIndex": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Index of the current active phase"
+        },
+        "lastedUpdatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp of last update"
+        }
+      }
+    },
+    "Overview": {
+      "type": "object",
+      "required": ["project", "markdown"],
+      "properties": {
+        "project": {
+          "type": "object",
+          "required": ["name"],
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Project name"
+            },
+            "description": {
+              "type": "string",
+              "description": "Project description"
+            }
+          }
+        },
+        "markdown": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MarkdownNode"
+          },
+          "description": "Markdown content nodes for overview section"
+        }
+      }
+    },
+    "Phase": {
+      "type": "object",
+      "required": ["index", "status", "markdown"],
+      "properties": {
+        "index": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Phase index (0-based)"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["NOT_STARTED", "IN_PROGRESS", "COMPLETED"],
+          "description": "Current status of the phase"
+        },
+        "markdown": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MarkdownNode"
+          },
+          "description": "Markdown content nodes for this phase"
+        }
+      }
+    },
+    "MarkdownNode": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "heading",
+            "list",
+            "listItem",
+            "paragraph",
+            "text",
+            "strong",
+            "emphasis",
+            "inlineCode",
+            "code",
+            "link",
+            "thematicBreak"
+          ],
+          "description": "Node type (mdast compatible)"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "heading"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "depth": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 6,
+                "description": "Heading level (1-6)"
+              },
+              "children": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/MarkdownNode"
+                }
+              }
+            },
+            "required": ["depth", "children"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "list"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "ordered": {
+                "type": "boolean",
+                "description": "Whether the list is ordered"
+              },
+              "start": {
+                "type": ["integer", "null"],
+                "description": "Starting number for ordered lists"
+              },
+              "spread": {
+                "type": "boolean",
+                "description": "Whether items are separated by blank lines"
+              },
+              "children": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/MarkdownNode"
+                }
+              }
+            },
+            "required": ["ordered", "children"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "listItem"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "spread": {
+                "type": "boolean"
+              },
+              "checked": {
+                "type": ["boolean", "null", "string"],
+                "description": "Checkbox state: true=[x], false=[ ], null=no checkbox, 'in_progress'=[/]"
+              },
+              "children": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/MarkdownNode"
+                }
+              }
+            },
+            "required": ["children"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "paragraph"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "children": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/MarkdownNode"
+                }
+              }
+            },
+            "required": ["children"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "text"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "Text content"
+              }
+            },
+            "required": ["value"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "strong"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "children": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/MarkdownNode"
+                }
+              }
+            },
+            "required": ["children"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "emphasis"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "children": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/MarkdownNode"
+                }
+              }
+            },
+            "required": ["children"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "inlineCode"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "Inline code content"
+              }
+            },
+            "required": ["value"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "code"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "lang": {
+                "type": ["string", "null"],
+                "description": "Programming language"
+              },
+              "meta": {
+                "type": ["string", "null"],
+                "description": "Additional metadata"
+              },
+              "value": {
+                "type": "string",
+                "description": "Code block content"
+              }
+            },
+            "required": ["value"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "link"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "url": {
+                "type": "string",
+                "description": "Link URL"
+              },
+              "title": {
+                "type": ["string", "null"],
+                "description": "Link title"
+              },
+              "children": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/MarkdownNode"
+                }
+              }
+            },
+            "required": ["url", "children"]
+          }
+        }
+      ]
+    }
+  }
+}

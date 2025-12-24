@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "verbatimModuleSyntax": false,
+    "allowImportingTsExtensions": false,
+    "noEmit": false,
+    "outDir": "./outputs",
+    "rootDir": "./sources"
+  },
+  "include": ["sources/**/*.ts"],
+  "exclude": ["node_modules", "outputs"]
+}

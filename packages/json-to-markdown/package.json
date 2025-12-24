@@ -1,0 +1,21 @@
+{
+  "name": "json-to-markdown",
+  "version": "1.0.0",
+  "description": "Convert mdast JSON to Markdown string",
+  "type": "module",
+  "exports": {
+    ".": "./sources/index.ts"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.ts"
+  },
+  "keywords": [
+    "mdast",
+    "json",
+    "markdown",
+    "converter"
+  ],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.26.1"
+}

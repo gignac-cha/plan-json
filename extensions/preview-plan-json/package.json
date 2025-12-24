@@ -1,0 +1,61 @@
+{
+  "name": "preview-plan-json",
+  "displayName": "Preview PLAN.json",
+  "description": "Real-time markdown preview for PLAN.jsonmd files",
+  "version": "1.0.0",
+  "publisher": "plan-json",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:jsonmd"
+  ],
+  "main": "./outputs/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "previewPlanJSON.openPreview",
+        "title": "Preview PLAN.json",
+        "category": "PLAN.json"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "previewPlanJSON.openPreview",
+          "when": "editorLangId == jsonmd"
+        }
+      ]
+    },
+    "languages": [
+      {
+        "id": "jsonmd",
+        "aliases": [
+          "PLAN.jsonmd"
+        ],
+        "extensions": [
+          ".jsonmd"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "node scripts/build.ts",
+    "watch": "pnpm compile -- --watch",
+    "package": "pnpm compile && pnpm vsce package --no-dependencies"
+  },
+  "dependencies": {
+    "markdown-to-html": "workspace:*",
+    "plan-json-to-markdown": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.2.2",
+    "esbuild": "^0.24.2"
+  },
+  "packageManager": "pnpm@10.26.1"
+}

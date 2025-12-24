@@ -1,0 +1,20 @@
+{
+  "name": "markdown-to-html",
+  "version": "1.0.0",
+  "description": "Convert Markdown to HTML",
+  "type": "module",
+  "exports": {
+    ".": "./sources/index.ts"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.ts"
+  },
+  "keywords": [
+    "markdown",
+    "html",
+    "converter"
+  ],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.26.1"
+}

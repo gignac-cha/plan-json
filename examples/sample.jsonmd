@@ -1,0 +1,86 @@
+{
+  "$schema": "../schema.json",
+  "state": {
+    "currentPhaseIndex": 1,
+    "lastedUpdatedAt": "2025-12-23T23:10:00+09:00"
+  },
+  "overview": {
+    "project": {
+      "name": "Sample Project",
+      "description": "A sample PLAN.jsonmd file for testing"
+    },
+    "markdown": [
+      {
+        "type": "heading",
+        "depth": 1,
+        "children": [{ "type": "text", "value": "Sample Project Plan" }]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          { "type": "text", "value": "This is a " },
+          { "type": "strong", "children": [{ "type": "text", "value": "sample" }] },
+          { "type": "text", "value": " PLAN.jsonmd file." }
+        ]
+      }
+    ]
+  },
+  "phases": [
+    {
+      "index": 0,
+      "status": "COMPLETED",
+      "markdown": [
+        {
+          "type": "heading",
+          "depth": 2,
+          "children": [{ "type": "text", "value": "Phase 1: Setup" }]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "spread": false,
+          "children": [
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [{ "type": "paragraph", "children": [{ "type": "text", "value": "Initialize project" }] }]
+            },
+            {
+              "type": "listItem",
+              "checked": true,
+              "children": [{ "type": "paragraph", "children": [{ "type": "text", "value": "Configure dependencies" }] }]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "status": "IN_PROGRESS",
+      "markdown": [
+        {
+          "type": "heading",
+          "depth": 2,
+          "children": [{ "type": "text", "value": "Phase 2: Development" }]
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "spread": false,
+          "children": [
+            {
+              "type": "listItem",
+              "checked": "in_progress",
+              "children": [{ "type": "paragraph", "children": [{ "type": "text", "value": "Implement core features" }] }]
+            },
+            {
+              "type": "listItem",
+              "checked": false,
+              "children": [{ "type": "paragraph", "children": [{ "type": "text", "value": "Write tests" }] }]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "plan-json-to-markdown",
+  "version": "1.0.0",
+  "description": "Convert PLAN.jsonmd to Markdown format",
+  "type": "module",
+  "exports": {
+    ".": "./sources/index.ts"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.ts"
+  },
+  "keywords": [
+    "plan-json",
+    "markdown",
+    "converter"
+  ],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.26.1",
+  "dependencies": {
+    "json-to-markdown": "workspace:*"
+  }
+}
